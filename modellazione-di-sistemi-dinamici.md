@@ -200,10 +200,10 @@ $$m=1\quad \text{e} \quad r=1$$
 
 ### Riassumendo: classificazione dei modelli
 
-|             | Stazionario                                         | Non stazionario                                               |
-| ----------- | --------------------------------------------------- | ------------------------------------------------------------- |
-| Lineare     | $\frac{dx}{dt}(t)=Ax(t)+Bu(t)\\ y(t)=Cx(t)+Du(t)$   | $\frac{dx}{dt}(t)=A(t)x(t)+B(t)u(t)\\ y(t)=C(t)x(t)+D(t)u(t)$ |
-| Non lineare | $\frac{dx}{dt}(t)=f(x(t),u(t))\\ y(t)=g(x(t),u(t))$ | $\frac{dx}{dt}(t)=f(x(t),u(t), t)\\ y(t)=g(x(t),u(t), t)$     |
+|             | Stazionario                                                                 | Non stazionario                                                                       |
+| ----------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Lineare     | $\begin{cases}\frac{dx}{dt}(t)=Ax(t)+Bu(t)\\ y(t)=Cx(t)+Du(t)\end{cases}$   | $\begin{cases}\frac{dx}{dt}(t)=A(t)x(t)+B(t)u(t)\\ y(t)=C(t)x(t)+D(t)u(t)\end{cases}$ |
+| Non lineare | $\begin{cases}\frac{dx}{dt}(t)=f(x(t),u(t))\\ y(t)=g(x(t),u(t))\end{cases}$ | $\begin{cases}\frac{dx}{dt}(t)=f(x(t),u(t), t)\\ y(t)=g(x(t),u(t), t)\end{cases}$     |
 
 ### Risposta di un sistema dinamico a tempo continuo
 
