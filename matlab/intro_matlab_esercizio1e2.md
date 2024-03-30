@@ -7,10 +7,6 @@ Si ricavino le matrici del modello di un carrello elevatore a trazione elettrica
 
 ## Soluzione
 
-Inanzitutto scegliamo la variabile di stato $x=p\Rightarrow \dot{x} =\dot{p}$
-
-Poi:
-
 ```matlab
 syms m km Ra Rf b;
 syms x1 x2 x1dot x2dot u y t;
