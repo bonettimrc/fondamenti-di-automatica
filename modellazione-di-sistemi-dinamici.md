@@ -76,7 +76,8 @@ Tipicamente, serve conoscere il valore passato di $u$, cioè per ogni passo comp
 
 La memoria del sistema dinamico viene definita stato ed è l'informazione da conoscere in $t_0$ per determinare $y(t), t\geq t_0$ noto $u(t), t\geq t_0$.  
 Lo stato rappresenta l'effetto degli ingressi applicati prima di $t_0$, sull'uscita presente e futura.  
-In generale lo stato è costituito da variabili raggruppate in un vettore di dimensione $n$, con $n$ detto ordine del sistema, ed al quale è associato uno spazio detto spazio degli stati:
+In generale lo stato è costituito da variabili raggruppate in un vettore di dimensione $n$, con $n$ detto ordine del sistema, ed al quale è associato uno spazio detto spazio degli stati:  
+
 $$
 \begin{pmatrix}
     x_1\\
@@ -98,7 +99,8 @@ Modello di un sistema dinamico nello spazio degli stati
 - insieme degli stati $X$
 - insieme delle uscite $Y$
 
-Per i sistemi a tempo continuo si definisce modello differenziale vettoriale:
+Per i sistemi a tempo continuo si definisce modello differenziale vettoriale:  
+
 $$
 \begin{cases}
 \frac{dx}{dt}(t)=f(x(t),u(t),t)\\
@@ -111,21 +113,25 @@ $x(t)$ è il vettore di stato
 $u(t)$ è il vettore di ingresso
 $y(t)$ è il vettore di uscita
 
-Per i sistemi a tempo discreto si usano equazioni alle differenze finite:
+Per i sistemi a tempo discreto si usano equazioni alle differenze finite:  
+
 $$
 \begin{cases}
 x(k+1)=f(x(k),u(k),k)\\
 y(k)=g(x(k),u(k),k)
 \end{cases}
-$$
+$$  
+
 $f$ in questo caso è detta funzione dello stato futuro  
 
 Sistemi puramente algebrici
-: senza stato
+: senza stato  
+
 $$y(t)=g(u(t),t)\quad \text{o}\quad y(k)=g(u(k),k)$$
 
 Sistemi puramente dinamici
-: non c'è $u$ nella funzione di uscita
+: non c'è $u$ nella funzione di uscita  
+
 $$
 \begin{cases}
 \frac{dx}{dt}(t)=f(x(t),u(t),t)\\
@@ -139,7 +145,8 @@ y(k)=g(x(k),k)
 $$
 
 Sistemi dinamici stazionari
-: le funzioni di stato/uscita non dipendono esplicitamente da t o k
+: le funzioni di stato/uscita non dipendono esplicitamente da t o k  
+
 $$
 \begin{cases}
 \frac{dx}{dt}(t)=f(x(t),u(t))\\
@@ -153,7 +160,8 @@ y(k)=g(x(k))
 $$
 
 Sistemi dinamici lineari
-: le funzioni $f$ e $g$ sono lineari rispetto a $x$ e $u$ per ogni $t$, sono quindi esprimibili con prodotti tra matrici e vettori
+: le funzioni $f$ e $g$ sono lineari rispetto a $x$ e $u$ per ogni $t$, sono quindi esprimibili con prodotti tra matrici e vettori  
+
 $$
 \begin{cases}
 \frac{dx}{dt}(t)=A(t)x(t)+B(t)u(t)\\
@@ -167,7 +175,8 @@ y(k)=C(k)x(k)+D(k)u(k)
 $$
 
 Sistemi dinamici lineari e stazionari
-: matrici $A$, $B$, $C$ e $D$ costanti nel tempo
+: matrici $A$, $B$, $C$ e $D$ costanti nel tempo  
+
 $$
 \begin{cases}
 \frac{dx}{dt}(t)=Ax(t)+Bu(t)\\
@@ -181,10 +190,12 @@ y(k)=Cx(k)+Du(k)
 $$
 
 Sistemi MIMO (Multi-Input Multi-Output)
-: $$m>1\quad \text{e} \quad r>1$$
+:  
+$$m>1\quad \text{e} \quad r>1$$
 
 Sistemi SISO (Single-Input Single-Output)
-: $$m=1\quad \text{e} \quad r=1$$
+:  
+$$m=1\quad \text{e} \quad r=1$$
 
 ### Riassumendo: classificazione dei modelli
 
@@ -196,10 +207,14 @@ Sistemi SISO (Single-Input Single-Output)
 
 ### Risposta di un sistema dinamico a tempo continuo
 
-La soluzione dell'equazione differenziale:
-$$\frac{dx}{dt}(t)=f(x(t),u(t),t);\quad x(t_0)=x_0$$
-che si suppone esistere ed essere unica è del tipo
-$$x(t)=\phi(t, t_0, x(t_0), u);\quad x(t_0)=x_0$$
+La soluzione dell'equazione differenziale:  
+
+$$\frac{dx}{dt}(t)=f(x(t),u(t),t);\quad x(t_0)=x_0$$  
+
+che si suppone esistere ed essere unica è del tipo  
+
+$$x(t)=\phi(t, t_0, x(t_0), u);\quad x(t_0)=x_0$$  
+
 si definisce funzione di transizione dello stato
 
 Proprietà base della funzione di transizione  dello stato
@@ -209,9 +224,13 @@ Proprietà base della funzione di transizione  dello stato
       $\implies x(t)=\phi(t, t_0, x(t_0), u)=\phi(t, t_1, x(t_1), u)$
 
 Sostituendo la funzione di transizione dello stato nella funzione di uscita:  
+
 $$y(t)=g(\phi(t,t_0, x(t_0), u), u(t), t)$$  
+
 si ottiene la funzione di risposta:  
+
 $$y(t)=\gamma(t, t_0, x(t_0), u)$$  
+
 e si passa dal modello differenziale ingresso-stato-uscita al modello ingresso-stato-uscita nel quale sono fissate le condizioni iniziali su $x(t_0)$  
 
 $$
