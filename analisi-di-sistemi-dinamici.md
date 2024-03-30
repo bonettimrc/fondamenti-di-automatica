@@ -105,96 +105,100 @@ $$\frac{dx}{dt}(t)=Ax(t);\quad x(0)=x_0; \quad x(t)\in\mathbb{R}^n$$
 Si puo dimostrare che la soluzione dell'equazione differenziale vettoriale è del tipo:  
 $$x(t)=e^{At}x_0$$  
 
->#### Calcolo di $e^{At}$
+> #### Calcolo di $e^{At}$
 >
->Per calcolare $e^{At}$, calcolare gli $h$ autovalori di $A$ ed analizzare il grado $l$ del polinomio minimo, poi determinare $\gamma_0, \gamma_1, \cdots,\gamma_{l-1}$ da uno dei seguenti sistemi
- >
- >- se $h=l$  
- >
- >$$\begin{pmatrix}
-    >e^{\lambda_1t}\\
-    >e^{\lambda_2t}\\
-    >\vdots\\
-    >e^{\lambda_ht}\\
-    >
->\end{pmatrix}=\begin{pmatrix}
-    >1 && \lambda_1 && \lambda_1^2 && \cdots && \lambda_1^{l-1}\\
-    >1 && \lambda_2 && \lambda_2^2 && \cdots && \lambda_2^{l-1}\\
-    >\vdots&&\vdots&&\vdots&&\ddots&&\vdots\\
-    >1 && \lambda_h && \lambda_h^2 && \cdots &&\lambda_h^{l-1}\\
->\end{pmatrix}
->\begin{pmatrix}
-    >\gamma_0\\
-    >\gamma_1\\
-    >\vdots\\
-    >\gamma_{l-1}
->\end{pmatrix}
->$$  
- >- se $h<l$  
->$$\begin{pmatrix}
-    >e^{\lambda_1t}\\
-    >te^{\lambda_2t}\\
-    >\vdots\\
-    >t^{l_1-1}e^{\lambda_ht}\\
-    >\hline
-    >\vdots\\
-    >\hline
-    >\vdots\\
-    >t^{l_h-1}e^{\lambda_ht}
-    >
->\end{pmatrix}=\begin{pmatrix}
-    >1 && \lambda_1 && \lambda_1^2 && \cdots && \lambda_1^{l-1}\\
-    >0 && 1 && \lambda_1 && \cdots && (l-1)\lambda_1^{l-2}\\
-    >\vdots&&\vdots&&\vdots&&\ddots&&\vdots\\
-    >0 && 0 && 0 && \cdots &&\frac{(l-1)!}{(l-l_1)!}\lambda_1^{l-l_1}\\
-    >\hline
-    >\vdots && \vdots && \vdots && \ddots && \vdots\\
-    >\hline
-    >\vdots && \vdots && \vdots && \ddots && \vdots\\
-    >0 && 0 && 0&& \cdots && \frac{(l-1)!}{(l-l_h)!}\lambda_h^{l-l_h}
->\end{pmatrix}
->\begin{pmatrix}
-    >\gamma_0\\
-    >\gamma_1\\
-    >\vdots\\
-    >\gamma_{l-1}
->\end{pmatrix}$$  
->Infine, in entrambi i casi:  
->$$e^{At}=\sum_{i=0}^{l-1}\gamma_i A^i$$  
+> Per calcolare $e^{At}$, calcolare gli $h$ autovalori di $A$ ed analizzare il grado $l$ del polinomio minimo, poi determinare $\gamma_0, \gamma_1, \cdots,\gamma_{l-1}$ da uno dei seguenti sistemi
 >
->>##### Matrici $2\times 2$  
- >>
- >>- $A$ ha $2$ autovalori distinti  
- >>
- >>$$\begin{pmatrix}
-    >>e^{\lambda_1t}\\
-    >>e^{\lambda_2t}\\
-    >>
->>\end{pmatrix}=\begin{pmatrix}
-    >>1 && \lambda_1 \\
-    >>1 && \lambda_2 \\
->>\end{pmatrix}
->>\begin{pmatrix}
-    >>\gamma_0\\
-    >>\gamma_1\\
->>\end{pmatrix}
->>$$
- >>- $A$ ha $1$ autovalore con molteplicità $2$  
->>$$\begin{pmatrix}
-    >>e^{\lambda_1t}\\
-    >>te^{\lambda_2t}\\
-    >>
->>\end{pmatrix}=\begin{pmatrix}
-    >>1 && \lambda_1 \\
-    >>0 && 1 \\
->>\end{pmatrix}
->>\begin{pmatrix}
-    >>\gamma_0\\
-    >>\gamma_1\\
->>\end{pmatrix}
->>$$
->>Infine, in entrambi i casi:
->>$$e^{At}=\gamma_0 I+\gamma_1 A$$
+> - se $h=l$  
+>
+> $$\begin{pmatrix}
+> e^{\lambda_1t}\\
+> e^{\lambda_2t}\\
+> \vdots\\
+> e^{\lambda_ht}\\
+> \end{pmatrix}=\begin{pmatrix}
+> 1 && \lambda_1 && \lambda_1^2 && \cdots && \lambda_1^{l-1}\\
+> 1 && \lambda_2 && \lambda_2^2 && \cdots && \lambda_2^{l-1}\\
+> \vdots&&\vdots&&\vdots&&\ddots&&\vdots\\
+> 1 && \lambda_h && \lambda_h^2 && \cdots &&\lambda_h^{l-1}\\
+> \end{pmatrix}
+> \begin{pmatrix}
+> \gamma_0\\
+> \gamma_1\\
+> \vdots\\
+> \gamma_{l-1}
+> \end{pmatrix}
+> $$  
+>
+> - se $h<l$  
+>
+> $$\begin{pmatrix}
+> e^{\lambda_1t}\\
+> te^{\lambda_2t}\\
+> \vdots\\
+> t^{l_1-1}e^{\lambda_ht}\\
+> \hline
+> \vdots\\
+> \hline
+> \vdots\\
+> t^{l_h-1}e^{\lambda_ht}
+> \end{pmatrix}=\begin{pmatrix}
+> 1 && \lambda_1 && \lambda_1^2 && \cdots && \lambda_1^{l-1}\\
+> 0 && 1 && \lambda_1 && \cdots && (l-1)\lambda_1^{l-2}\\
+> \vdots&&\vdots&&\vdots&&\ddots&&\vdots\\
+> 0 && 0 && 0 && \cdots &&\frac{(l-1)!}{(l-l_1)!}\lambda_1^{l-l_1}\\
+> \hline
+> \vdots && \vdots && \vdots && \ddots && \vdots\\
+> \hline
+> \vdots && \vdots && \vdots && \ddots && \vdots\\
+> 0 && 0 && 0&& \cdots && \frac{(l-1)!}{(l-l_h)!}\lambda_h^{l-l_h}
+> \end{pmatrix}
+> \begin{pmatrix}
+> \gamma_0\\
+> \gamma_1\\
+> \vdots\\
+> \gamma_{l-1}
+> \end{pmatrix}
+> $$  
+>
+> Infine, in entrambi i casi:  
+>
+> $$e^{At}=\sum_{i=0}^{l-1}\gamma_i A^i$$  
+>
+> ##### Matrici $2\times 2$  
+>
+> - $A$ ha $2$ autovalori distinti  
+>
+> $$\begin{pmatrix}
+> e^{\lambda_1t}\\
+> e^{\lambda_2t}\\
+> \end{pmatrix}=\begin{pmatrix}
+> 1 && \lambda_1 \\
+> 1 && \lambda_2 \\
+> \end{pmatrix}
+> \begin{pmatrix}
+> \gamma_0\\
+> \gamma_1\\
+> \end{pmatrix}
+> $$
+>
+> - $A$ ha $1$ autovalore con molteplicità $2$  
+>
+> $$\begin{pmatrix}
+> e^{\lambda_1t}\\
+> te^{\lambda_2t}\\
+> \end{pmatrix}=\begin{pmatrix}
+> 1 && \lambda_1 \\
+> 0 && 1 \\
+> \end{pmatrix}
+> \begin{pmatrix}
+> \gamma_0\\
+> \gamma_1\\
+> \end{pmatrix}
+> $$
+>
+> Infine, in entrambi i casi:
+> $$e^{At}=\gamma_0 I+\gamma_1 A$$
 
 L'esponenziale della matrice $At$ è anche chiamata matrice di transizione perchè determina, in assenza di ingresso ($u=0$), il moto libero  
 
