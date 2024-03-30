@@ -106,7 +106,8 @@ $$
 \frac{dx}{dt}(t)=f(x(t),u(t),t)\\
 y(t)=g(x(t),u(t),t)
 \end{cases}
-$$
+$$  
+
 $f$ è detta funzione di velocità di transizione dello stato  
 $g$ è detta funzione di uscita  
 $x(t)$ è il vettore di stato
