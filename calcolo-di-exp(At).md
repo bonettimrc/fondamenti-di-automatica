@@ -73,9 +73,7 @@ $$
     f(\lambda_2)\\
     \vdots\\
     f(\lambda_h)\\
-\end{pmatrix}
-=
-\begin{pmatrix}
+\end{pmatrix}=\begin{pmatrix}
     1 && \lambda_1 && \lambda_1^2 && \cdots && \lambda_1^{l-1}\\
     1 && \lambda_2 && \lambda_2^2 && \cdots && \lambda_2^{l-1}\\
     \vdots&&\vdots&&\vdots&&\ddots&&\vdots\\
@@ -97,9 +95,7 @@ $$
     e^{\lambda_2t}\\
     \vdots\\
     e^{\lambda_ht}\\
-\end{pmatrix}
-=
-\begin{pmatrix}
+\end{pmatrix}=\begin{pmatrix}
     1 && \lambda_1 && \lambda_1^2 && \cdots && \lambda_1^{l-1}\\
     1 && \lambda_2 && \lambda_2^2 && \cdots && \lambda_2^{l-1}\\
     \vdots&&\vdots&&\vdots&&\ddots&&\vdots\\
@@ -160,9 +156,7 @@ $$\begin{pmatrix}
     e^{\lambda_2t}\\
     \vdots\\
     e^{\lambda_ht}\\
-\end{pmatrix}
-=
-\begin{pmatrix}
+\end{pmatrix}=\begin{pmatrix}
     1 && \lambda_1 && \lambda_1^2 && \cdots && \lambda_1^{l-1}\\
     1 && \lambda_2 && \lambda_2^2 && \cdots && \lambda_2^{l-1}\\
     \vdots&&\vdots&&\vdots&&\ddots&&\vdots\\
@@ -188,9 +182,7 @@ $$\begin{pmatrix}
     \hline
     \vdots\\
     t^{l_h-1}e^{\lambda_ht}
-\end{pmatrix}
-=
-\begin{pmatrix}
+\end{pmatrix}=\begin{pmatrix}
     1 && \lambda_1 && \lambda_1^2 && \cdots && \lambda_1^{l-1}\\
     0 && 1 && \lambda_1 && \cdots && (l-1)\lambda_1^{l-2}\\
     \vdots&&\vdots&&\vdots&&\ddots&&\vdots\\
@@ -219,9 +211,7 @@ $$e^{At}=\sum_{i=0}^{l-1}\gamma_i A^i$$
 $$\begin{pmatrix}
     e^{\lambda_1t}\\
     e^{\lambda_2t}\\
-\end{pmatrix}
-=
-\begin{pmatrix}
+\end{pmatrix}=\begin{pmatrix}
     1 && \lambda_1 \\
     1 && \lambda_2 \\
 \end{pmatrix}
@@ -236,9 +226,7 @@ $$
 $$\begin{pmatrix}
     e^{\lambda_1t}\\
     te^{\lambda_2t}\\
-\end{pmatrix}
-=
-\begin{pmatrix}
+\end{pmatrix}=\begin{pmatrix}
     1 && \lambda_1 \\
     0 && 1 \\
 \end{pmatrix}
