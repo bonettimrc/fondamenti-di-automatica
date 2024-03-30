@@ -16,9 +16,7 @@ eqns = [x1dot + x2 + c1*u == 0; c2*(x1 + x2dot) == c3*u];
 xdot = [x1dot,x2dot];
 ```
 
-La funzione `solve(eqns,xdot)`
-
-risolve il sistema di equazioni eqns nelle variabili simboliche xdot
+La funzione `solve(eqns,xdot)` risolve il sistema di equazioni eqns nelle variabili simboliche xdot
 
 ```matlab
 xdot=solve(eqns,xdot);
@@ -32,9 +30,7 @@ abbiamo così ottenuto l'espressione di equazioni differenziali accoppiate predi
 x = [x1,x2];
 ```
 
-La funzione `equationsToMatix(eqns, x)`
-
-restituisce la matrice $A$ e il vettore dei termini noti $b$ del sistema di equazioni eqns tali che $Ax=b$
+La funzione `equationsToMatix(eqns, x)` restituisce la matrice $A$ e il vettore dei termini noti $b$ del sistema di equazioni eqns tali che $Ax=b$
 
 ```matlab
 [A,Bu] = equationsToMatrix(xdot,x);
