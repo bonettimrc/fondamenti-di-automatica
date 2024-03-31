@@ -98,7 +98,7 @@ x(0)=x_0
 $$  
 ha una soluzione del tipo $x(t)=x_0e^{at}$ -->
 
-### Caso vettoriale omogeneo (sistema lineare stazionario con $u(t)=0$)  
+### Caso vettoriale omogeneo ($u(t)=0$)  
 
 $$\frac{dx}{dt}(t)=Ax(t);\quad x(0)=x_0; \quad x(t)\in\mathbb{R}^n$$  
 
@@ -202,10 +202,67 @@ $$x(t)=e^{At}x_0$$
 
 L'esponenziale della matrice $At$ è anche chiamata matrice di transizione perchè determina, in assenza di ingresso ($u=0$), il moto libero  
 
-### Caso vettoriale non omogeneo (sistema lineare stazionario con $u(t)\neq 0$)  
+#### Sturttura generale di $e^{At}$  
+
+Ogni termine di $e^{At}$ è una combinazione lineare a coefficienti costanti di termini del tipo:
+
+$$e^{\lambda_1t}, te^{\lambda_1t}, \cdots,t^{l_1-1}e^{\lambda_1t}, \cdots, e^{\lambda_ht}, \cdots, t^{l_h-1}e^{\lambda_ht}$$  
+
+Questi termini elementari si chiamano modi di $e^{At}$ e caratterizzano completamente il moto libero del sistema
+
+### Caso vettoriale non omogeneo ($u(t)\neq 0$)  
 
 $$\frac{dx}{dt}(t)=Ax(t)+Bu(t);\quad x(0)=x_0; \quad x(t)\in\mathbb{R}^n$$  
 
 Si può dimostrare che la soluzione dell'equazione differenziale è data dalla formula di lagrange:  
 
-$$x(t)=e^{At}x_0+\int_0^t e^{A(t-\tau)}Bu(\tau)d\tau$$  
+$$x(t)=\underbrace{e^{At}x_0}_{\text{moto libero}}+\underbrace{\int_0^t e^{A(t-\tau)}Bu(\tau)d\tau}_{\text{moto forzato}}$$  
+
+Nel caso di un sistema lineare stazionario, si ottiene facilmente la risposta $y(t)=Cx(t)+Du(t)$:  
+
+$$y(t)=\underbrace{Ce^{At}x_0}_{\text{risposta libera}}+\underbrace{\int_0^t Ce^{A(t-\tau)}Bu(\tau)d\tau+Du(t)}_{\text{risposta forzata}}$$  
+
+La matrice  
+
+$$W(t)=Ce^{At}B$$  
+
+è chiamata risposta impulsiva del sistema
+
+Se $x_0=0$ ed il sistema è puramente dinamico:  
+
+$$y(t)=\int_0^t W(t-\tau)u(\tau)d\tau$$  
+
+ovvero l'uscita è data dall'integrale di convoluzione tra la risposta impulsiva e l'ingresso.  
+La risposta impulsiva è così denominata in quanto corrisponde anche alla risposta del sistema nel caso in cui venga applicato ad esso la funzione generallizzata *delta di Dirac* $\delta(t)$:  
+
+$$u(t)=\delta(t)\implies y(t)=\int_0^t W(t-\tau)\delta(\tau)d\tau=W(t)$$  
+
+## Sistemi lineari stazionari a tempo discreto  
+
+### Caso vettoriale omogeneo ($u(t)=0$)
+
+$$x(k+1)=Ax(k);\quad x(0)=x_0;\quad x(k)\in\mathbb{R}^n;\quad  k\in\mathbb{Z}$$  
+
+In tale caso risulta:  
+
+$$
+\begin{align*}
+x(1)&=Ax_0\\
+x(2)&=Ax(1)=A^2x_0\\
+&\vdots\\
+x(k)&=A^kx_0\\
+\end{align*}
+$$  
+
+Pertanto nel caso discreto la matrice di transizione, che caratterizza il moto libero è $A^k$.  
+A differenza dell'esponenziale di matrice, la potenza di matrice può essere singolare.  
+
+<!-- #### Calcolo di $A^k$  -->
+
+Anche tale matrice può essere calcolata con la teoria delle funzioni di matrice, dalla quale risulta che ogni suo elemento è una combinazione lineare a coefficienti costanti di termini, detti modi di $A^k$, del tipo:  
+
+$$\lambda_1^k, k\lambda_1^{k-1}, \cdots, (l_1-1)!\binom{k}{l_1-1}\lambda_1^{k-l_1+1},\cdots,\lambda_h^k, \cdots, (l_h-1)!\binom{k}{l_h-1}\lambda_h^{k-l_h+1}$$  
+
+### Caso non omogeneo ($k\neq0$)  
+
+$$x(k+1)=Ax(k)+Bu(k);\quad x(0)=x_0;\quad x(k)\in\mathbb{R}^n;\quad k\in\mathbb{Z}$$  
