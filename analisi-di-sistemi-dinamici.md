@@ -81,7 +81,7 @@ Si dice che il moto di riferimento è asintoticamente stabile se, oltre alle con
 
 $$\lim_{t\to \infty} ||\delta x_p(t)||=0$$  
 
-Dato $\delta x_u(t)=x_u(t)-x(t)$ si dice che il moto di riferimento è stabile rispetto a $\delta u se:  
+Dato $\delta x_u(t)=x_u(t)-x(t)$ si dice che il moto di riferimento è stabile rispetto a $\delta u$ se:  
 
 $$\forall \varepsilon>0 \quad \exists \delta>0,\quad ||\delta u||<\delta \implies ||\delta x_u(t)||<\varepsilon\quad \forall t \geq t_0$$  
 
@@ -266,3 +266,180 @@ $$\lambda_1^k, k\lambda_1^{k-1}, \cdots, (l_1-1)!\binom{k}{l_1-1}\lambda_1^{k-l_
 ### Caso non omogeneo ($k\neq0$)  
 
 $$x(k+1)=Ax(k)+Bu(k);\quad x(0)=x_0;\quad x(k)\in\mathbb{R}^n;\quad k\in\mathbb{Z}$$  
+
+In tale caso risulta:  
+
+$$
+\begin{align*}
+x(1)&=Ax_0+Bu(0)\\
+x(2)&=Ax(1)+Bu(1)=A^2x_0+ABu(0)+Bu(1)\\
+&\vdots\\
+x(k)&=\underbrace{A^kx_0}_{\text{moto libero}}+\underbrace{\sum_{i=0}^{k-1}A^{k-1-i}Bu(i)}_{\text{moto forzato}}\\
+\end{align*}
+$$  
+
+Si ottiente facilmente la risposta:  
+
+$$
+y(k)=\underbrace{CA^kx_0}_{\text{risposta libera}}+\underbrace{\sum_{i=0}^{k-1}CA^{k-1-i}Bu(i)+Du(k)}_{\text{risposta forzata}}
+$$  
+
+La matrice  
+
+$$W(k)=CA^{k-1}B$$  
+
+è la risposta impulsiva per il caso discreto, determinabile applicando come ingresso  
+
+$$u(k)=\begin{cases}
+1 & k=0\\
+0& k\neq 0
+\end{cases}$$  
+
+## Stabilità di un moto con stato iniziale perturbato  
+
+moto di riferimento:  
+
+$$x(t)=e^{At}x_0+\int_0^t e^{A(t-\tau)}Bu(\tau)d\tau$$  
+
+moto perturbato rispetto allo stato iniziale:  
+
+$$x_p(t)=e^{At}(x_0+\delta x_0)+\int_0^t e^{A(t-\tau)}Bu(\tau)d\tau$$  
+
+$$\implies \delta x_p(t)=x_p(t)-x(t)=e^{At}\delta x_0$$  
+
+La differenza tra il moto di riferimento e quello perturbato corrisponde a un moto libero del sistema con stato iniziale $\delta x(0)$  
+
+Per poter raggiungere la stabilità asintotica, ovvero perchè sia:  
+
+$$\lim_{t\to\infty}\delta x_p(t)=0$$  
+
+occorre che tutti gli elementi di $e^{At}$ tendano a $0$ per $t\to\infty$  
+
+### Caso discreto  
+
+moto di riferimento:  
+
+$$x(k)=A^kx_0+\sum_{i=0}^{k-1}A^{k-1-i}Bu(i)$$  
+
+moto perturbato:  
+
+$$x_p(k)=A^k(x_0+\delta x_0)+\sum_{i=0}^{k-1}A^{k-1-i}Bu(i)$$  
+
+$$\implies \delta x_p(k)=x_p(k)-x(k)=A^k\delta x_0$$  
+
+## Stabilità e stati di equilibrio dei sistemi lineari tempo stazionari  
+
+Uno stato di equilibrio è un punto $\overline{x}\in X$ per il quale è possibile trovare una funzione di ingresso $u$ tale che:  
+
+$$\overline{x}=\phi(t, t_0, \overline{x}, u)$$  
+
+Se $A$ è invertibile, il punto di equilibrio è unico:  
+
+$$A\overline{x}+B\overline{u}=0 \implies \overline{x}=-A^{-1}B\overline{u}$$  
+
+Notare che se $\overline{u}=0$ allora $\overline{x}=0$  
+
+L'unico movimento di interesse per la stabilità è il movimento libero, le cui caratteristiche dipendono da $e^{At}$ (o $A^k$ nel caso discreto), cioè dipendono solo dagli autovalori di $A$.
+
+## Rappresentazioni equivalenti  
+
+Si osservi che non esiste un modo unico di scegliere le variabili di stato per rappresentare un sistema dinamico, o anche per ordinarle nel vettore di stato.  
+Un sistema lineare tempo stazionario una volta scelte le variabili di stato è rappresentato da:  
+
+$$\begin{cases}
+\dot{x}(t)=Ax(t)+Bu(t)\\
+y(t)=Cx(t)+Du(t)
+\end{cases}$$  
+
+Considerando una matrice $T\in M_n(\mathbb{R})$ costante e non singolare, è possibile effettuare un cambio di variabili e definire un nuovo vettore di stato $z$ come:  
+
+$$x=Tz\iff z=T^{-1}x$$  
+
+Sostituendo nelle equazioni di partenza si ottiene:  
+
+$$\begin{cases}
+\dot{z}(t)=\hat{A}z(t)+\hat{B}u(t)\\
+y(t)=\hat{C}x(t)+\hat{D}u(t)
+\end{cases}$$  
+
+Dove:  
+
+$$\begin{cases}
+\hat{A}=T^{-1}AT\\
+\hat{B}=T^{-1}B\\
+\hat{C}=CT\\
+\hat{D}=D\\
+\end{cases}$$  
+
+Il sistema rappresentato da queste equazioni è equivalente al sistema di partenza, nel senso che per un ingresso $u(t)$ e due stati iniziali legati dalla condizione  
+
+$$z_0=T^{-1}$$  
+
+Le funzioni dello stato $x(t)$ e $z(t)$ sono legate dalla relazione  
+
+$$z(t)=T^{-1}x(t)\quad \forall t\geq 0$$  
+
+e le uscite sono identiche per entrambi i modelli.  
+
+Le matrici $A$ e $\hat{A}$ sono matrici simili, aventi lo steso polinomio caratteristico, lo stesso polinomio minimo e gli stessi autovalori:  
+
+$$\begin{align*}
+|\lambda I - \hat{A}|&=|\lambda T^{-1}T - T^{-1}AT|\\
+&=|T^{-1}(\lambda I - \hat{A})T|\\
+&=\frac{1}{\cancel{|T|}}|\lambda I - \hat{A}|\cancel{|T|}=|\lambda I - A|\end{align*}$$  
+
+Risulta inoltre:  
+
+$$\hat{A}^2=T^{-1}ATT^{-1}AT=T^{-1}A^2T$$  
+
+$$e^{\hat{A}t}=\sum_{i=0}^\infty\hat{A}\frac{t^i}{i!}=\sum_{i=0}^\infty T^{-1}AT\frac{t^i}{i!}=T^{-1}e^{At}T$$  
+
+$$\hat{C}e^{\hat{A}t}\hat{B}=CTT^{-1}e^{At}TT^{-1}B=Ce^{At}B$$  
+
+La risposta impulsiva $W(t)$ rimane quindi invariata  
+
+La scelta delle variabili di stato però influisce sulla forma delle matrici $A$, $B$ e $C$. Ciò permette, con opportune trasformazioni dello stato, di rendere più evidenti alcuni parametri numerici del sistema, in quiesto caso si parla di sistemi in forma canonica  
+
+## Stabilità dei sistemi lineari stazionari  
+
+Teorema
+: un sistema lineare stazionario a tempo continuo è semplicemente stabile se e solo se tutti gli autovalori di $A$ hanno parte reale negativa o nulla, e quelli a parte reale nulla hanno molteplicità unitaria nel polinomio minimo di $A$  
+
+Teorema
+: Un sistema lineare stazionario a tempo continuo è asintoticamente stabile se e solo se tutti gli autovalori di $A$ hanno parte reale negativa  
+
+Teorema
+: Un sistema lineare stazionario a tempo discreto è semplicemente stabile se e solo se tutti gli autovalori di $A$ hanno modulo minore o uguale a $1$, e quelli a modulo unitario hanno molteplicità unitaria nel polinomio minimo di $A$  
+
+Teorema
+: Un sistema lineare stazionario a tempo discreto è asintoticamente stabile se e solo se tutti gli autovalori di $A$ hanno modulo minore di $1$  
+
+## Proprietà strutturali dei sistemi lineari stazionari, raggiungibilità e controllabilità  
+
+Sono proprietà di un sistema che descrivono la possibilità di influire sul suo moto $x$ agendo opportunamente sulla funzione di ingresso $u$  
+
+Come la stabilità, tali proprietà sono strutturali, cioè non dipendono dalla scelta delle variabili di stato  
+
+Inoltre non sono modificabili tramite il controllo  
+
+### Raggiungibilità
+
+Definizione
+: Lo stato $x_1$ di un sistema dinamico è raggiungibile da $x_0$ nell'intervallo di tempo $[t_0, t_1]$ con $t_0<t_1$ se esiste una funzione di ingresso $u\in U_f$ tale che:  
+
+$$x_1=x(t_1)=\phi(t_1,t_0,x_0,u)$$  
+
+L'insieme degli stati raggiungibili all'istante $t_1$ a partire dall'evento $(t_0,x_0)$ è indicato con  
+
+$$\mathcal{R}^+ (t_0,t_1,x_0)$$  
+
+### Controllabilità  
+
+Definizione
+: Lo stato $x_0$ di un sistema dinamico è controllabile a $x_1$ nell'intervallo di tempo $[t_0, t_1]$ con $t_0<t_1$ se esiste una funzione di ingresso ammissibile $u\in U_f$ tale che:  
+
+$$x_1=x(t_1)=\phi(t_1,t_0,x_0,u)$$  
+
+L'insieme degli stati controllabili all'evento $(t_1,x_1)$ a partire dall'istante $t_0$ è indicato con  
+
+$$\mathcal{R}^- (t_0,t_1,x_1)$$  
