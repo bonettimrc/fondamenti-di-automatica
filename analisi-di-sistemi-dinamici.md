@@ -1,6 +1,9 @@
-# Analisi dei sistemi dinamici  
+---
+title: "Fondamenti di automatica: analisi dei sistemi dinamici"
+author: Marco Bonetti
+...
 
-[[TOC]]
+# Analisi dei sistemi dinamici  
 
 ## Definizioni  
 
@@ -437,3 +440,106 @@ $$x_1=x(t_1)=\phi(t_1,t_0,x_0,u)$$
 L'insieme degli stati controllabili all'evento $(t_1,x_1)$ a partire dall'istante $t_0$ è indicato con  
 
 $$\mathcal{R}^- (t_0,t_1,x_1)$$  
+
+--------------------------------------------------
+
+Per estensione:  
+
+L'insieme degli stati raggiungibili
+: in un istante $t$ dell'intervallo $[t_0, t_1]$ a partire dall'evento $(t_0, x_0)$ è indicato con $\mathcal{W}^+(t_0,t_1,x_0)$  
+
+L'insieme degli stati controllabili
+: all'evento $(t_1,x_1)$ a partire da un istante $t$ qualunque dell'intervallo $[t_0,t_1]$ è indicato con $\mathcal{W}^-(t_0,t_1,x_1)$  
+
+### Raggiungibilità e controllabilità completa  
+
+Un sistema si dice completamente raggiungibile dall'evento $(t_0, x)$ nell'intervallo di tempo $[t_0,t_1]$ se  
+
+$$\mathcal{W}^+(t_0,t_1,x)=X$$  
+
+Un sistema si dice completamente controllabile all'evento $(t_1,x)$ nell'intervallo di tempo $[t_0,t_1]$ se  
+
+
+$$\mathcal{W}^-(t_0,t_1,x)=X$$  
+
+---
+
+Per i sistemi lineari stazionari, si assume $t_0=0$ e si può considerare $x=0$ come unico punto di interesse dell'analisi, si parla quindi di raggiungibilità dall'origine e controllabilità all'origine  
+
+La possibilità di considerare $x=0$ come unico punto di interesse nei sistemi lineari stazionari lega la raggiungibilità unicamente al moto forzato
+
+### Raggiungibilità dei sistemi lineari stazionari continui  
+
+Facendo riferimento al moto forzato:  
+
+$$x(t)=\int_0^t e^{A(t)}Bu(t-\tau)d\tau$$  
+
+Dal teorema di Cayley-Hamilton si può esprimere:  
+
+$$e^{A\tau}=I\gamma_0(\tau)+A\gamma_1(\tau)+\cdots+A^{n-1}\gamma_{n-1}(\tau)$$  
+
+dove $\gamma_i(\tau)$ sono opportune funzioni scalari  
+
+Si può quindi espandere l'espressione del moto forzato:  
+
+$$x(t)=B\int_0^t \gamma_0(\tau)u(t-\tau)d\tau+AB\int_0^t \gamma_1(\tau)u(t-\tau)d\tau+\cdots+A^{n-1}B\int_0^t \gamma_{n-1}(\tau)u(t-\tau)d\tau$$  
+
+Pertanto, gli stati raggiungibili sono ancora un sottospazio generato da $\begin{pmatrix}B&AB&A^2B&\cdots&A^{n-1}B\end{pmatrix}$  
+
+Uno stato $x(0)\neq 0$ è controllabile (a $0$) al tempo $t$ se esiste una funzione di ingresso ammissibile $u$ tale che:  
+
+$$0=e^{At}x(0)+\int_0^t e^{A(t-\tau)}Bu(\tau)d\tau$$  
+
+ovvero  
+
+$$-x(0)=\int_0^t e^{-A\tau}Bu(\tau)d\tau$$  
+
+perciò si possono applicare considerazioni analoghe a quelle viste in precedenza  
+
+Definizione
+: Si definisce matrice di raggiungibilità di un sistema lineare stazionario la matrice
+
+$$P=\begin{pmatrix}B&AB&A^2B&\cdots&A^{n-1}B\end{pmatrix}\in M_{n\times nr}(\mathbb{R})$$  
+
+Teorema
+: il sistema lineare stazionario è completamente raggiungibile e completamente controllabile se e solo se
+
+$$\operatorname{rank}(P)=n$$  
+
+### Raggiungibilità dei sistemi lineari stazionari discreti  
+
+Tenendo conto del fatto che $x(0)=0$:  
+
+\begin{align*}
+x(1)&=Bu(0)\\
+x(2)&=Ax(1)+Bu(1)=ABu(0)+Bu(1)\\
+&\vdots\\
+x(k)&=\sum_{i=0}^{k-1}A^{k-1-i}Bu(i)\\
+&=\begin{pmatrix}B&AB&A^2B&\cdots&A^{k-1}B\end{pmatrix}\begin{pmatrix}u(k-1)\\u(k-2)\\\vdots\\u(0)\end{pmatrix}
+\end{align*}  
+
+Perciò il sottospazio delgi stati raggiungibili in k passi è generato da:  
+
+$$\begin{pmatrix}B&AB&A^2B&\cdots&A^{k-1}B\end{pmatrix}$$  
+
+## Proprietà strutturali dei sistemi lineari stazionari osservabilità e ricostruibilità  
+
+Sono proprietà di un sistema che descrivono la possibilità di determinare lo stato iniziale $x(t_0)$ o finale $x(t_1)$ di un sistema dalla conoscenza del comportamento ingresso-uscita $u[t_0, t_1]$, $y[t_0, t_1]$  
+
+Anche tali proprietà sono strutturali, cioè non dipendono dalla rappresentazione, ma possono essere influenzate dal controllo  
+
+### Osservabilità  
+
+Definizione
+: Lo stato $x_0$ di un sistema dinamico è compatibile con le funzioni di ingresso $u$ e uscita $y$ nell'intervallo di tempo $[t_0,t_1]\forall t_0<t_1$ se:
+
+$$y(\tau)=\gamma(\tau,t_0,x_0,u)\quad \forall\tau\in[t_0,t_1]$$  
+
+L'insieme degli stati iniziali compatibili con $u$ e $y$ nell'intervallo $[t_0,t_1]$ è indicato con  
+
+$$\mathcal{E}^-(t_0,t_1,u,y)$$  
+
+### Ricostruibilità  
+
+Definizione
+: Lo stato $x_1$ di un sistema dinamico è compatibile con le funzioni di ingresso $u$ e uscita $y$ nell'intervallo di tempo 
