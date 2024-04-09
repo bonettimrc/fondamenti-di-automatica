@@ -24,12 +24,10 @@ $$\overline{x}=\phi(t, t_0, \overline{x}, u)$$
 
 Nei sistemi lineari vale il principio di sovrapposizione degli effetti, in base al quale le transizioni ottenute con combinazioni lineari tra diversi valori dello stato iniziale e diverse funzioni di ingresso si sommano:  
 
-$$
 \begin{align*}
 x(t) & =\phi(t, t_0, \alpha x_{0_1}+\beta x_{0_2},\alpha u_1+\beta u_2)\\
 & = \alpha \phi(t, t_0, x_{0_1}, u_1) + \beta\phi(t, t_0, x_{0_2}, u_2)
-\end{align*}
-$$  
+\end{align*}  
 
 Ponendo $\alpha=\beta=1;\quad x_{0_1}=x_0; \quad x_{0_2}=0; \quad u_1=0; \quad u_2=u$ si può scorporare l'effetto dello stato iniziale (moto libero) da quello dell'ingresso (moto forzato)  
 
@@ -245,14 +243,12 @@ $$x(k+1)=Ax(k);\quad x(0)=x_0;\quad x(k)\in\mathbb{R}^n;\quad  k\in\mathbb{Z}$$
 
 In tale caso risulta:  
 
-$$
 \begin{align*}
 x(1)&=Ax_0\\
 x(2)&=Ax(1)=A^2x_0\\
 &\vdots\\
 x(k)&=A^kx_0\\
-\end{align*}
-$$  
+\end{align*}  
 
 Pertanto nel caso discreto la matrice di transizione, che caratterizza il moto libero è $A^k$.  
 A differenza dell'esponenziale di matrice, la potenza di matrice può essere singolare.  
@@ -269,14 +265,12 @@ $$x(k+1)=Ax(k)+Bu(k);\quad x(0)=x_0;\quad x(k)\in\mathbb{R}^n;\quad k\in\mathbb{
 
 In tale caso risulta:  
 
-$$
 \begin{align*}
 x(1)&=Ax_0+Bu(0)\\
 x(2)&=Ax(1)+Bu(1)=A^2x_0+ABu(0)+Bu(1)\\
 &\vdots\\
 x(k)&=\underbrace{A^kx_0}_{\text{moto libero}}+\underbrace{\sum_{i=0}^{k-1}A^{k-1-i}Bu(i)}_{\text{moto forzato}}\\
-\end{align*}
-$$  
+\end{align*}  
 
 Si ottiente facilmente la risposta:  
 
@@ -383,10 +377,10 @@ e le uscite sono identiche per entrambi i modelli.
 
 Le matrici $A$ e $\hat{A}$ sono matrici simili, aventi lo steso polinomio caratteristico, lo stesso polinomio minimo e gli stessi autovalori:  
 
-$$\begin{align*}
+\begin{align*}
 |\lambda I - \hat{A}|&=|\lambda T^{-1}T - T^{-1}AT|\\
 &=|T^{-1}(\lambda I - \hat{A})T|\\
-&=\frac{1}{\cancel{|T|}}|\lambda I - \hat{A}|\cancel{|T|}=|\lambda I - A|\end{align*}$$  
+&=\frac{1}{|T|}|\lambda I - \hat{A}||T|=|\lambda I - A|\end{align*}  
 
 Risulta inoltre:  
 
