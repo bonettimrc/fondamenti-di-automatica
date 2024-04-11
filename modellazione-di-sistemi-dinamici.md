@@ -1,7 +1,5 @@
 # Modellazione di sistemi dinamici
 
-[[TOC]]
-
 ## Definizioni
 
 ### Sistemi e segnali

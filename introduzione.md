@@ -1,7 +1,5 @@
 # Introduzione
 
-[[TOC]]
-
 ## Concetti fondamentali
 
 Controllo
