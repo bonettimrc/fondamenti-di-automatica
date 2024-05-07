@@ -542,4 +542,86 @@ $$\mathcal{E}^-(t_0,t_1,u,y)$$
 ### Ricostruibilità  
 
 Definizione
-: Lo stato $x_1$ di un sistema dinamico è compatibile con le funzioni di ingresso $u$ e uscita $y$ nell'intervallo di tempo 
+: Lo stato $x_1$ di un sistema dinamico è compatibile con le funzioni di ingresso $u$ e uscita $y$ nell'intervallo di tempo $[t_0,t_1]\forall t_0<t_1$ se:  
+
+$$x(t_1)=x_1=\phi(t_1,t_0, x(t_0), u)\quad x(t_0)\in \mathcal{E}^-(t_0,t_1, u, y)$$  
+
+L'insieme degli stati finali compatibili con $u$ e $y$ nell'intervallo $[t_0,t_1]$ è indicato con  
+
+$$\mathcal{E}^+(t_0,t_1, u,y)$$  
+
+---  
+
+Se l'insieme $\mathcal{E}^-(t_0,t_1,u,y)$ comprende un unico elemento, per qualunque funzione di ingresso $u\in U_f$ e di uscita $y\in Y_f$ il sistema è completamente osservabile  
+
+Analogamente, se $\mathcal{E}^+(t_0,t_1,u,y)$ comprende un unico elemento, per qualunque funzione di ingresso $u\in U_f$ e di uscita $y\in Y_f$ il sistema è completamente ricostruibile  
+
+Definizione
+: Un sistema si dice completamente osservabile in $[t_0 ,t_1 ]$ se la conoscenza del comportamento ingresso-uscita $u[t_0 ,t_1 ]$, $y[t_0,t_1]$ consente di  determinare univocamente lo stato iniziale $x(t_0)$ per ogni $u[t_0 ,t_1 ]$  
+
+Definizione
+: Un sistema si dice completamente ricostruibile in $[t_0 ,t_1 ]$ se la conoscenza del comportamento ingresso-uscita $u[t_0,t_1]$, $y[t_0,t1]$ consente di determinare univocamente lo stato finale $x(t_1)$ per ogni $u[t_0,t_1]$  
+
+### Osservabilità e ricostruibilità nei sistemi lineari stazionari  
+
+Per i sistemi lineari stazionari si può considerare solo $t=t_1-t_0$, e le sole proprietà della risposta libera per capire se il sistema sia osservabile e ricostruibile.  
+Inoltre poichè noto lo stato iniziale è possibile determinare il corrispondente stato finale, la completa osservabilità implica la completa ricostruibilità.  
+
+Consideriamo ora il seguente sistema libero:  
+
+$$\begin{cases}
+\dot{x}(t)=Ax(t)\\
+y(t)=Cx(t)
+\end{cases}\quad x\in \mathbb{R}^n$$  
+
+Per calcolare lo stato conoscendo l'uscita, se $C$ è invertibile:  
+
+$$x(t)=C^{-1}y(t)$$  
+
+Se $C$ non è invertibile, cerchiamo la relazione invertibile derivando l'uscita:  
+
+$$\dot{y}(t)=C\dot{x}(t)=CA(t)$$  
+
+Questa operazione si puo ripetere fino all'ordine $n-1$:  
+
+$$\begin{pmatrix}
+y(t)\\
+\dot{y}(t)\\
+\vdots\\
+{\overset {\,n-1}{\dot {y}}}
+\end{pmatrix}=
+\begin{pmatrix}
+C\\
+CA\\
+\vdots\\
+CA^{n-1}
+\end{pmatrix}x(t)$$  
+
+In modo analogo, per sistemi discreti si può esprimere la possibilità di osservazione dello stato iniziale analizzando le uscite dei primi $n-1$ passi:  
+
+$$\begin{pmatrix}
+y(0)\\
+y(1)\\
+\vdots\\
+y(n-1)
+\end{pmatrix}=
+\begin{pmatrix}
+C\\
+CA\\
+\vdots\\
+CA^{n-1}
+\end{pmatrix}x(0)$$  
+
+Definizione
+: Si definisce matrice di osservabilità di un sistema lineare stazionario la matrice di dimensione $n\times nm$ :  
+
+$$ Q=\begin{pmatrix} C&CA &\cdots&CA^{n-1}\end{pmatrix}^T$$  
+
+o equivalentemente:  
+
+$$ Q^T=\begin{pmatrix}C^T& A^TC^T&\cdots&(A^T)^{n-1}C^T\end{pmatrix}$$  
+
+Teorema
+: Il sistema lineare stazionario è completamente osservabile e completamente ricostruibile se e solo se:  
+
+$$\operatorname{rank}(Q^T)=n$$  
