@@ -6,7 +6,7 @@ This is a partial collection of theory and exercises from a course on the Fundam
 - [Modeling of Dynamic Systems](./modellazione-di-sistemi-dinamici.md)
 - [Analysis of Dynamic Systems](./analisi-di-sistemi-dinamici.md)
 - [Transfer Functions](./funzioni-di-trasferimento.md)
-- [Evaluation of $e^{At}](./calcolo-di-exp(At).md)
+- [Evaluation of $e^{At}$](./calcolo-di-exp(At).md)
 
 ## Requirements and Usage
 
