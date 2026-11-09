@@ -10,7 +10,7 @@ This is a partial collection of theory and exercises from a course on the Fundam
 
 ## Requirements and Usage
 
-Github cannot display correctly all of the syntax that I used inside the markdown files, to compile them to a pdf you will need
+Github cannot display correctly all of the syntax that I used inside the markdown files, to compile them to a pdf you will need:
 
 - pandoc
 - plantuml
